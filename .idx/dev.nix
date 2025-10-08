@@ -2,13 +2,15 @@
 # see: https://developers.google.com/idx/guides/customize-idx-env
 {pkgs}: {
   # Which nixpkgs channel to use.
-  channel = "stable-24.05"; # or "unstable"
+  channel = "stable-24.11"; # or "unstable"
   # Use https://search.nixos.org/packages to find packages
   packages = [
-    pkgs.nodejs_20
-    pkgs.yarn
-    pkgs.nodePackages.pnpm
-    pkgs.bun
+    pkgs.nodejs_22
+    # pkgs.yarn
+    # pkgs.nodePackages.pnpm
+    # pkgs.bun
+    pkgs.gh
+    pkgs.heroku
   ];
   # Sets environment variables in the workspace
   env = {};
@@ -17,6 +19,15 @@
     extensions = [
       # "vscodevim.vim"
       "google.gemini-cli-vscode-ide-companion"
+      "bradlc.vscode-tailwindcss"
+      "esbenp.prettier-vscode"
+      "formulahendry.auto-rename-tag"
+      "kisstkondoros.vscode-gutter-preview"
+      "ms-vscode.vscode-typescript-next"
+      "Pinegrow.piny"
+      "PulkitGangwar.nextjs-snippets"
+      "standard.vscode-standard"
+      "WakaTime.vscode-wakatime"
     ];
     workspace = {
       # Runs when a workspace is first created with this `dev.nix` file
