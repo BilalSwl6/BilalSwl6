@@ -1,10 +1,9 @@
 import data from "./data.json";
 
 function ProjectsPage() {
-    console.log(data);
     return(
         <>
-        {data.projects.map(({name, github}) => (
+        {data.projects.map(({name}) => (
             <div key={name}>{name}</div>
         ))}
         </>

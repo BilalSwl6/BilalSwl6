@@ -11,8 +11,6 @@ import {
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { DialogTitle } from "@radix-ui/react-dialog"
 
-interface TimelineProps extends React.HTMLAttributes<HTMLUListElement> {}
-
 interface TimelineItemProps extends React.HTMLAttributes<HTMLLIElement> {
   label: string
   date: string
@@ -21,7 +19,7 @@ interface TimelineItemProps extends React.HTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 
-export function Timeline({ className, ...props }: TimelineProps) {
+export function Timeline({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) {
   return (
     <ul
       className={cn(
