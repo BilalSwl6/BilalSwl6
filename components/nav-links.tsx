@@ -18,7 +18,6 @@ export default function NavLink({
 }: NavLinkProps) {
   const pathname = usePathname();
   return (
-    <div key={href}>
       <Link
         href={href}
         className={cn(
@@ -31,6 +30,5 @@ export default function NavLink({
       >
         {label}
       </Link>
-    </div>
   );
 }

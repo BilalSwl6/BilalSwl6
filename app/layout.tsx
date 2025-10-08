@@ -1,15 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Jost } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import NavLink from "@/components/nav-links";
-import { Jost } from "next/font/google";
 
 const jost = Jost({
   subsets: ["latin"],
   weight: ["400", "700"],
 });
-
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,14 +29,14 @@ const NavLinks = [
   { href: "/about", label: "About me" },
   { href: "/contact", label: "Contact" },
   { href: "/projects", label: "Projects" },
-  { href: "/blogs", label: "Blogs" }
+  { href: "/blogs", label: "Blogs" },
 ];
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background ${jost.className}`}>
@@ -48,31 +46,25 @@ export default function RootLayout({
               Bilal
             </Link>
             <div className="flex gap-6 text-sm font-medium">
-            {NavLinks.map(({href, label}) => (
-              <NavLink href={href} label={label} />
-            ))}
+              {NavLinks.map(({ href, label }) => (
+                <NavLink key={href} href={href} label={label} />
+              ))}
             </div>
           </nav>
         </header>
 
         <main className="max-w-5xl mx-auto p-6">{children}</main>
 
-        <footer className="border-t  mt-12">
+        <footer className="border-t mt-12">
           <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center p-4 text-sm">
             <div>
               <h3 className="text-lg font-semibold">Bilal</h3>
               <p>Building modern web experiences</p>
             </div>
             <div className="flex gap-4 mt-2 sm:mt-0">
-              <Link href="/" className="hover:text-blue-600">
-                Home
-              </Link>
-              <Link href="/about" className="hover:text-blue-600">
-                About
-              </Link>
-              <Link href="/contact" className="hover:text-blue-600">
-                Contact
-              </Link>
+              <Link href="/" className="hover:text-blue-600">Home</Link>
+              <Link href="/about" className="hover:text-blue-600">About</Link>
+              <Link href="/contact" className="hover:text-blue-600">Contact</Link>
             </div>
           </div>
         </footer>
