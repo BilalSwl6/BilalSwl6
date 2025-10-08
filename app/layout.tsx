@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Jost } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
-import NavLink from "@/components/nav-links";
+import HeaderComponent from "@/components/header";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -24,15 +24,6 @@ export const metadata: Metadata = {
   description: "Personal portfolio built with Next.js",
 };
 
-const NavLinks = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About me" },
-  { href: "/contact", label: "Contact" },
-  { href: "/projects", label: "Projects" },
-  { href: "/blogs", label: "Blogs" },
-  { href: "/timeline", label: "Timeline" }
-];
-
 export default function RootLayout({
   children,
 }: {
@@ -41,18 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background ${jost.className}`}>
-        <header className="border-b card-foreground">
-          <nav className="max-w-5xl mx-auto flex justify-between items-center p-4">
-            <Link href="/" className="text-xl font-semibold">
-              Bilal
-            </Link>
-            <div className="flex gap-6 text-sm font-medium">
-              {NavLinks.map(({ href, label }) => (
-                <NavLink key={href} href={href} label={label} />
-              ))}
-            </div>
-          </nav>
-        </header>
+        <HeaderComponent />
 
         <main className="max-w-5xl mx-auto p-6">{children}</main>
 
