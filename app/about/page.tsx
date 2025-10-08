@@ -2,16 +2,17 @@ import Image from "next/image";
 
 export default function AboutPage() {
   return (
-    <div className="flex gap-3">
+    <div className="flex gap-10">
       <div>
         <Image
-          src="https://placehold.co/400"
+          src="/bilal.jpeg"
           alt="Portrait of Bilal"
-          width={400}
           height={400}
+          width={400}
+          className="rounded-full object-cover"
         />
       </div>
-      <div>
+      <div className="mt-4">
         {`I'm Bilal, a student passionate about new technologies.`}
       </div>
     </div>

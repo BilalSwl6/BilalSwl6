@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "title": "How I Built My Portfolio with Next.js",
+      "publish_at": "2025-10-08",
+      "short_description": "A quick guide to setting up a personal site using Next.js.",
+      "post_body": "In this post, I explain how I built my personal portfolio using Next.js...",
+      "author": "Bilal Swl",
+      "tags": ["Next.js", "Portfolio", "Web Development"],
+      "cover_image": "/posts/portfolio.png",
+      "slug": "how-i-built-my-portfolio",
+      "category": "Tutorial",
+      "reading_time": "5 min read",
+      "is_published": true
+    }
+  ]
+}

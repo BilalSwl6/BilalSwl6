@@ -30,6 +30,7 @@ const NavLinks = [
   { href: "/contact", label: "Contact" },
   { href: "/projects", label: "Projects" },
   { href: "/blogs", label: "Blogs" },
+  { href: "/timeline", label: "Timeline" }
 ];
 
 export default function RootLayout({
