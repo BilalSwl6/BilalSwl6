@@ -36,7 +36,7 @@ export default function RootLayout({
 
         <main className="max-w-5xl mx-auto p-6">{children}</main>
 
-        <footer className="border-t mt-12">
+        <footer className="border-t border-primary mt-12">
           <div className="max-w-5xl mx-auto flex flex-col sm:flex-row justify-between items-center p-4 text-sm">
             <div>
               <h3 className="text-lg font-semibold">Bilal</h3>

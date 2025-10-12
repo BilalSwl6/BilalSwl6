@@ -20,15 +20,18 @@ export default function NavLink({
 }: NavLinkProps) {
   const pathname = usePathname();
 
+  // Check if the current path starts with href
+  const isActive = pathname === href || pathname.startsWith(`${href}/`);
+
   return (
     <Link
       href={href}
-      onClick={onClick} 
+      onClick={onClick}
       className={cn(
-        pathname === href
+        isActive
           ? "text-primary font-semibold"
           : "hover:text-primary transition-colors",
-        "px-3 py-2 rounded-md text-sm md:text-base", // mobile-friendly padding & touch area
+        "px-3 py-2 rounded-md text-sm md:text-base",
         className
       )}
       {...props}

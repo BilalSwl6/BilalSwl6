@@ -19,10 +19,10 @@ export default function HeaderComponent() {
     const [mobileOpen, setMobileOpen] = useState(false);
     return (
         <>
-        <header className="border-b card-foreground">
+        <header className="border-b border-primary card-foreground">
           <nav className="max-w-5xl mx-auto flex justify-between items-center p-4">
             <Link href="/" className="text-xl font-semibold">
-              Bilal
+              <h2 className="black italic">M. Bilal S.</h2>
             </Link>
              {/* Desktop links */}
              <div className="hidden md:flex gap-6 text-sm font-medium">

@@ -9,10 +9,10 @@ export default function AboutPage() {
           alt="Portrait of Bilal"
           height={400}
           width={400}
-          className="rounded-full object-cover"
+          className="rounded-full object-cover border-primary border-3"
         />
       </div>
-      <div className="mt-4 md:mt-0 space-y-4 text-gray-800 text-base md:text-lg leading-relaxed">
+      <div className="mt-4 md:mt-0 space-y-4 text-base md:text-lg leading-relaxed">
         <p>
           Hi! I’m <strong>Bilal</strong> — a student and developer who’s been
           exploring the world of code one framework at a time. I started my

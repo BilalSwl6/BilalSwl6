@@ -3,7 +3,7 @@
     {
       "name": "Hospital pharmacy system",
       "description": "A modern web-based solution for managing hospital operations efficiently. Built with Laravel (PHP) for the backend and React + ShadCN UI for the frontend, it supports features like ward management, dark mode, and responsive design.",
-      "image": "",
+      "image": "ipd-hospital.png",
       "tags": ["laravel", "inertiajs"],
       "github": "react-hospital",
       "demo": "https://testing-service-46c28d01331e.herokuapp.com",
@@ -12,7 +12,7 @@
     {
       "name": "SOM Shop Redesign",
       "description": "A simple React + Vite app to browse and filter products from SOM",
-      "image": "",
+      "image": "som-redesign.png",
       "tags": ["Reactjs", "Redesign"],
       "github": "summer-of-making-shop-rewards",
       "demo": "https://summer-of-making-shop-rewards.vercel.app",
@@ -20,8 +20,8 @@
     },
     {
       "name": "My Portfolio",
-      "description": "",
-      "image": "",
+      "description": "A simple and clean personal portfolio built with Next.js, featuring your introduction, professional history, and contact information. It’s designed for quick customization and deployment.",
+      "image": "portfolio.png",
       "tags": ["Nextjs", "Reactjs"],
       "github": "",
       "demo": "https://bilal-swl6.vercel.app",
@@ -29,7 +29,7 @@
     },
     {
       "name": "LangSwap",
-      "description": "",
+      "description": "A language exchange platform that pairs learners with native speakers for real-time practice, combining Omegle-style random matching with Duolingo-style exercises. Built with NestJS and REST APIs.",
       "image": "",
       "tags": ["ws", "elixir"],
       "github": "Langswap",

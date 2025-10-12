@@ -74,8 +74,8 @@ export function TimelineItem({
                     <Image
                       src={img.src}
                       alt={img.alt || ""}
-                      width={300}
-                      height={300}
+                      width={500}
+                      height={500}
                       className="h-auto w-full object-cover"
                     />
                   </button>
@@ -119,7 +119,7 @@ export function TimelineItem({
       )}
 
       {/* Text Section */}
-      <div className="relative z-10 w-full md:w-1/2">
+      <div className="relative z-10 w-full md:w-1/2 p-4">
         <div className="rounded-lg border bg-card p-4 text-card-foreground shadow-sm">
           <div className="flex items-center justify-between">
             <h3 className="text-lg font-semibold">{label}</h3>

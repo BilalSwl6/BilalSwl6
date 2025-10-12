@@ -1,0 +1,83 @@
+<p><a tabindex="0" href="https://supabase.com/" target="_self" data-test-app-aware-link="">Supabase</a> is a powerful backend-as-a-service that provides authentication, database, and storage solutions. If you&rsquo;re working with Laravel and want to connect Supabase Storage using the S3 driver, this guide will walk you through the process.</p>
+
+<h3>Why Use Supabase Storage with Laravel?</h3>
+<ul>
+<li><strong>Scalability</strong>: Supabase Storage uses S3-compatible APIs, making it easier to scale file storage.</li>
+<li><strong>Security</strong>: Supabase provides authentication and access controls.</li>
+<li><strong>Laravel Integration</strong>: <a tabindex="0" href="http://laravel.com/docs/" target="_self" data-test-app-aware-link="">Laravel</a> supports the S3 driver, allowing seamless integration.</li>
+</ul>
+
+<hr />
+
+<h3>Step 1: Create a Supabase Project</h3>
+<ol>
+<li>Go to <a tabindex="0" href="https://supabase.com/" target="_self" data-test-app-aware-link="">Supabase</a> and sign in.</li>
+<li>Create a new project and note down the <strong>Project URL</strong> and <strong>Anon/Public Key</strong>.</li>
+<li>Enable Storage by navigating to <strong>Storage &gt; Buckets</strong>, and create a new bucket.</li>
+</ol>
+
+<hr />
+
+<h3>Step 2: Get Supabase Storage S3-Compatible Credentials</h3>
+<p><a tabindex="0" href="https://supabase.com/" target="_self" data-test-app-aware-link="">Supabase</a> Storage uses an S3-compatible API. To retrieve your credentials:</p>
+<ol>
+<li>Navigate to <strong>Storage &gt; Settings</strong>.</li>
+<li>Create S3 Credentials for storage.</li>
+<li>Copy the <strong>S3 Endpoint, Access Key, and Secret Key</strong>.</li>
+</ol>
+<hr />
+<h3>Step 3: Configure Laravel to Use Supabase Storage</h3>
+<p>Laravel provides built-in support for S3 storage. To configure it:</p>
+<h3>1. Install AWS S3 Package</h3>
+<p>Run the following command:</p>
+<pre><code>composer require league/flysystem-aws-s3-v3</code></pre>
+<h3>2. Set Up Environment Variables</h3>
+<p>Add the following to your .env file:</p>
+<pre><code>FILESYSTEM_DISK=s3
+AWS_ACCESS_KEY_ID=your_supabase_access_key
+AWS_SECRET_ACCESS_KEY=your_supabase_secret_key
+AWS_DEFAULT_REGION=us-east-1 # Supabase uses us-east-1 by default
+AWS_BUCKET=bucket_name
+AWS_ENDPOINT=https://{project-name}.supabase.co/storage/v1/s3/bucket_name
+AWS_USE_PATH_STYLE_ENDPOINT=true</code></pre>
+<p><strong>note: </strong>make sure to add <em>bucket_name</em> at the end of <em>AWS_ENDPOINT.</em></p>
+<h3>3. Update Laravel Filesystem Configuration</h3>
+<p>Modify config/filesystems.php to include the Supabase storage setup:</p>
+<pre><code> disks' =&gt; [
+ 's3' =&gt; [
+ 'driver' =&gt; 's3',
+ 'key' =&gt; env('AWS_ACCESS_KEY_ID'),
+ 'secret' =&gt; env('AWS_SECRET_ACCESS_KEY'),
+ 'region' =&gt; env('AWS_DEFAULT_REGION'),
+ 'bucket' =&gt; env('AWS_BUCKET'),
+ 'endpoint' =&gt; env('AWS_ENDPOINT'),
+ 'use_path_style_endpoint' =&gt; env('AWS_USE_PATH_STYLE_ENDPOINT', true),
+ ],
+],</code></pre>
+<hr />
+<h3>Step 4: Upload and Retrieve Files from Supabase Storage</h3>
+<p>Now, you can use <a tabindex="0" href="https://laravel.com/docs/filesystem" target="_self" data-test-app-aware-link="">Laravel&rsquo;s Storage</a> facade to interact with Supabase Storage.</p>
+<h3>Upload a File</h3>
+<pre><code>use Illuminate\Support\Facades\Storage;
+$file = request()-&gt;file('image');
+$path = Storage::disk('s3')-&gt;put('uploads', $file);
+return response()-&gt;json(['path' =&gt; $path]); </code></pre>
+<h3>Retrieve a File URL</h3>
+<pre><code>$url = Storage::disk('s3')-&gt;url('uploads/example.jpg');
+return response()-&gt;json(['url' =&gt; $url]); </code></pre>
+<hr />
+<h3>Step 5: Test Your Setup</h3>
+<p>Run the following command to verify file uploads:</p>
+<pre><code>php artisan tinker </code></pre>
+<p>Then, execute:</p>
+<pre><code>Storage::disk('s3')-&gt;put('test.txt', 'Hello, Supabase!'); </code></pre>
+<p>If no errors occur, your Laravel app is successfully connected to Supabase Storage via S3.</p>
+<hr />
+<h3>Pros and Cons</h3>
+<ul>
+<li><strong>Pro</strong>: Easy integration with Laravel's filesystem.</li>
+<li><strong>Con</strong>: Your files will be stored under "storage/v1/s3/bucket_name/bucket_name/" by default, which may require custom handling for direct file paths.</li>
+</ul>
+<hr />
+<h3>Conclusion</h3>
+<p>By leveraging Supabase&rsquo;s S3-compatible storage with Laravel, you can manage file uploads efficiently without relying on traditional cloud providers. This setup provides security, scalability, and seamless integration with Laravel&rsquo;s filesystem features.</p>

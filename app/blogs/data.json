@@ -1,14 +1,27 @@
 {
   "posts": [
     {
-      "title": "How I Built My Portfolio with Next.js",
+      "title": "Test",
       "publish_at": "2025-10-08",
-      "short_description": "A quick guide to setting up a personal site using Next.js.",
-      "post_body": "In this post, I explain how I built my personal portfolio using Next.js...",
+      "short_description": "Test",
+      "post_body": "Test",
       "author": "Bilal Swl",
-      "tags": ["Next.js", "Portfolio", "Web Development"],
-      "cover_image": "/bilal.jpeg",
-      "slug": "how-i-built-my-portfolio",
+      "tags": ["Next.js", "Portfolio", "Test"],
+      "cover_image": "/test",
+      "slug": "test",
+      "category": "Tutorial",
+      "reading_time": "5 min read",
+      "is_published": false
+    },
+    {
+      "title": "Connecting Supabase Storage to Laravel via S3",
+      "publish_at": "2025-10-11",
+      "short_description": "A quick guide to setting up a supabase storage (s3) with laravel.",
+      "post_body": "connecting-supabase-storage-to-laravel-via-s3.html",
+      "author": "Bilal Swl",
+      "tags": ["laravel", "supabase", "s3"],
+      "cover_image": "/posts/connecting-supabase-storage-to-laravel-via-s3.png",
+      "slug": "connecting-supabase-storage-to-laravel-via-s3",
       "category": "Tutorial",
       "reading_time": "5 min read",
       "is_published": true

@@ -1,23 +1,26 @@
 import { Card, CardContent } from "@/components/ui/card";
 import data from "./data.json";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function BlogsPage() {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 sm:grid-cols-1 gap-4">
       {data.posts
-        .filter(post => post.is_published) // show only published posts
+        .filter(post => post.is_published)
+        .sort((a, b) => new Date(b.publish_at).getTime() - new Date(a.publish_at).getTime())
         .map(post => (
+          <Link href={`/blogs/${post.slug}`} key={post.slug}>
           <Card key={post.slug} className="overflow-hidden">
             <CardContent>
               {post.cover_image && (
                 <Image
                   src={post.cover_image}
                   alt={post.title}
-                  height={300}
-                  width={300}
-                  className="mb-2 w-full h-48 object-cover rounded-md"
-                />
+                  height={500}
+                  width={500}
+                  className="object-cover rounded-md mx-auto"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 600px"                 />
               )}
               <h3 className="text-xl font-semibold">{post.title}</h3>
               <p className="text-sm text-gray-600 mb-2">
@@ -32,6 +35,7 @@ export default function BlogsPage() {
               </p>
             </CardContent>
           </Card>
+          </Link>
         ))}
     </div>
   );
