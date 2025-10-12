@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import data from "./projects/data.json";
+import GetQuote from "@/components/get-quote";
 
 export default function Home() {
   const nameRef = useRef<HTMLHeadingElement>(null);
@@ -153,7 +154,7 @@ export default function Home() {
             <h3 className="text-3xl font-bold mb-8">Projects</h3>
             <div className="space-y-4">
               {data.projects
-                .sort(() => Math.random() - 0.5)
+                // .sort(() => Math.random() - 0.5)
                 .slice(0, 2)
                 .map((project) => (
                   <Card
@@ -192,6 +193,7 @@ export default function Home() {
               ))}
             </div>
           </div>
+          <GetQuote />
         </div>
       </div>
     </>

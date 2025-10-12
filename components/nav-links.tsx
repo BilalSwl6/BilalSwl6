@@ -20,7 +20,6 @@ export default function NavLink({
 }: NavLinkProps) {
   const pathname = usePathname();
 
-  // Check if the current path starts with href
   const isActive = pathname === href || pathname.startsWith(`${href}/`);
 
   return (
