@@ -3,13 +3,7 @@
 import * as React from "react"
 import Image from "next/image"
 import { cn } from "@/lib/utils"
-import {
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 import { ChevronLeft, ChevronRight } from "lucide-react"
-import { DialogTitle } from "@radix-ui/react-dialog"
 
 interface TimelineItemProps extends React.HTMLAttributes<HTMLLIElement> {
   label: string
@@ -19,7 +13,10 @@ interface TimelineItemProps extends React.HTMLAttributes<HTMLLIElement> {
   children?: React.ReactNode
 }
 
-export function Timeline({ className, ...props }: React.HTMLAttributes<HTMLUListElement>) {
+export function Timeline({
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLUListElement>) {
   return (
     <ul
       className={cn(
@@ -65,54 +62,22 @@ export function TimelineItem({
         <div className="relative z-10 w-full md:w-1/2">
           <div className="flex flex-wrap justify-center gap-3">
             {images.map((img, i) => (
-              <Dialog key={i} open={open} onOpenChange={setOpen}>
-                <DialogTrigger asChild>
-                  <button
-                    onClick={() => setIndex(i)}
-                    className="w-32 overflow-hidden rounded-md border bg-card shadow-sm transition hover:opacity-90"
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt || ""}
-                      width={500}
-                      height={500}
-                      className="h-auto w-full object-cover"
-                    />
-                  </button>
-                </DialogTrigger>
-
-                <DialogContent className="max-w-lg">
-                    <DialogTitle></DialogTitle>
-                  <div className="relative flex flex-col items-center">
-                    <Image
-                      src={images[index].src}
-                      alt={images[index].alt || ""}
-                      width={600}
-                      height={400}
-                      className="rounded-md border object-contain"
-                    />
-                    {images.length > 1 && (
-                      <div className="mt-4 flex items-center justify-center gap-6">
-                        <button
-                          onClick={handlePrev}
-                          className="rounded-full border p-2 hover:bg-accent"
-                        >
-                          <ChevronLeft className="h-4 w-4" />
-                        </button>
-                        <span className="text-sm text-muted-foreground">
-                          {index + 1} / {images.length}
-                        </span>
-                        <button
-                          onClick={handleNext}
-                          className="rounded-full border p-2 hover:bg-accent"
-                        >
-                          <ChevronRight className="h-4 w-4" />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </DialogContent>
-              </Dialog>
+              <button
+                key={i}
+                onClick={() => {
+                  setIndex(i)
+                  setOpen(true)
+                }}
+                className="w-32 overflow-hidden rounded-md border bg-card shadow-sm transition hover:opacity-90"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt || ""}
+                  width={500}
+                  height={500}
+                  className="h-auto w-full object-cover"
+                />
+              </button>
             ))}
           </div>
         </div>
@@ -130,6 +95,54 @@ export function TimelineItem({
           )}
         </div>
       </div>
+
+      {/* Modal */}
+      {open && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-sm p-4"
+          onClick={() => setOpen(false)}
+        >
+          <div
+            className="relative max-w-2xl rounded-lg border bg-card p-4 shadow-lg"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={images[index].src}
+              alt={images[index].alt || ""}
+              width={600}
+              height={400}
+              className="rounded-md border object-contain"
+            />
+
+            {images.length > 1 && (
+              <div className="mt-4 flex items-center justify-center gap-6">
+                <button
+                  onClick={handlePrev}
+                  className="rounded-full border p-2 hover:bg-accent"
+                >
+                  <ChevronLeft className="h-4 w-4" />
+                </button>
+                <span className="text-sm text-muted-foreground">
+                  {index + 1} / {images.length}
+                </span>
+                <button
+                  onClick={handleNext}
+                  className="rounded-full border p-2 hover:bg-accent"
+                >
+                  <ChevronRight className="h-4 w-4" />
+                </button>
+              </div>
+            )}
+
+            <button
+              onClick={() => setOpen(false)}
+              className="absolute right-3 top-3 rounded-full border p-1 text-muted-foreground hover:bg-accent"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </li>
   )
 }

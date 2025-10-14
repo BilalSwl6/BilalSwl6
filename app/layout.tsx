@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Jost } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import HeaderComponent from "@/components/header";
+import { Github, Facebook } from "lucide-react";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -31,7 +32,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background ${jost.className}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background ${jost.className}`}
+      >
         <HeaderComponent />
 
         <main className="max-w-5xl mx-auto p-6">{children}</main>
@@ -43,9 +46,20 @@ export default function RootLayout({
               <p>Building modern web experiences</p>
             </div>
             <div className="flex gap-4 mt-2 sm:mt-0">
-              <Link href="/" className="hover:text-blue-600">Home</Link>
-              <Link href="/about" className="hover:text-blue-600">About</Link>
-              <Link href="/contact" className="hover:text-blue-600">Contact</Link>
+              <Link
+                href="https://fb.com/Bilal.swl6"
+                className="text-gray-500 hover:text-blue-600"
+                target="_blank"
+              >
+                <Facebook className="h-4 w-4" />
+              </Link>
+              <Link
+                href="https://github.com/BilalSwl6"
+                className="text-gray-500 hover:text-blue-600"
+                target="_blank"
+              >
+                <Github className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </footer>

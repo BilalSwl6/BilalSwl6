@@ -1,4 +1,3 @@
-import { Card, CardContent } from "@/components/ui/card";
 import data from "./data.json";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,18 +10,18 @@ export default function BlogsPage() {
         .sort((a, b) => new Date(b.publish_at).getTime() - new Date(a.publish_at).getTime())
         .map(post => (
           <Link href={`/blogs/${post.slug}`} key={post.slug}>
-          <Card key={post.slug} className="overflow-hidden">
-            <CardContent>
+          <div key={post.slug} className="overflow-hidden bg-card text-card-foreground flex flex-col gap-6 rounded-xl shadow-sm">
+            <div className="px-3"> 
               {post.cover_image && (
                 <Image
                   src={post.cover_image}
                   alt={post.title}
                   height={500}
                   width={500}
-                  className="object-cover rounded-md mx-auto"
+                  className="object-cover rounded-md mx-auto aspect-[16/9] p-2"
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 600px"                 />
               )}
-              <h3 className="text-xl font-semibold">{post.title}</h3>
+              <h3 className="text-xl font-semibold mt-2">{post.title}</h3>
               <p className="text-sm text-gray-600 mb-2">
                 {post.publish_at} - {post.author} - {post.reading_time}
               </p>
@@ -33,8 +32,8 @@ export default function BlogsPage() {
                     : post.short_description
                   : "No description available."}
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
           </Link>
         ))}
     </div>
