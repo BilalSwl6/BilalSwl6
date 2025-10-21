@@ -8,9 +8,9 @@ export default function Page() {
           label="Birth"
           date="2007"
         >
-          I was born in the culturally rich region of Punjab in 2007.  
-          My early years were filled with curiosity, family warmth, and a love for learning.  
+          I was born in the culturally rich region of Punjab in 2007.  My early years were filled with curiosity, and a love for learning.  
           Growing up in a simple environment taught me the importance of gratitude, humility, and strong community values.
+          I learn so much things and also experience thing that help me when i migrate to city 
         </TimelineItem>
 
         <TimelineItem
@@ -19,8 +19,8 @@ export default function Page() {
           reverse
         >
           In 2019, I moved from my native village to the city (of course, with my parents).  
-          This transition marked a significant turning point — stepping into a new environment, adapting to a faster pace of life, and embracing broader educational and social opportunities.  
-          It was both a challenge and a period of growth, helping me develop confidence, independence, and adaptability.
+          This transition marked a significant turning point, stepping into a new environment, adapting to a faster pace of life, and embracing broader educational and social opportunities.  
+          It was both a challenge and a period of growth, helping me develop confidence, independence. Sudden freedom (change in my enviroment) also cause so issue in my life, like anxity, and fear of failure.
         </TimelineItem>
 
         <TimelineItem
@@ -40,6 +40,7 @@ export default function Page() {
           I enrolled in a two-year dispenser course from 2022 to 2024, exploring the fundamentals of healthcare and medicine.  
           The program introduced me to medical ethics, first aid, patient care, and pharmaceutical dispensing.  
           It gave me a hands-on understanding of how compassion, precision, and knowledge intersect in the medical field.
+          I know the importance of human life and also learn basic practices to save life by giving first aid and later procedure.
         </TimelineItem>
 
         <TimelineItem
