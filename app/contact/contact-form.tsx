@@ -51,7 +51,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={state.submitting}
-          className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 rounded-md"
+          className="bg-primary font-semibold hover:bg-primary/90 h-9 px-4 py-2 rounded-md"
         >
           Submit
         </button>

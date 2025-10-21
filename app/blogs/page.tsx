@@ -18,11 +18,11 @@ export default function BlogsPage() {
                   alt={post.title}
                   height={500}
                   width={500}
-                  className="object-cover rounded-md mx-auto aspect-[16/9] p-2"
-                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 600px"                 />
+                  className="object-cover rounded-md mx-auto aspect-[16/9]"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 80vw, 600px" />
               )}
               <h3 className="text-xl font-semibold mt-2">{post.title}</h3>
-              <p className="text-sm text-gray-600 mb-2">
+              <p className="text-sm text-foreground mb-2">
                 {post.publish_at} - {post.author} - {post.reading_time}
               </p>
               <p>

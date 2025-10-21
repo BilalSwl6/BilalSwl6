@@ -56,7 +56,7 @@ export default function GetQuote() {
   return (
     <>
       <h3 className="text-2xl font-bold text-center mb-4">Quote for you</h3>
-      <figure className="mt-16 p-6 border-l-4 border-gray-400 dark:border-gray-600 bg-gray-50 dark:bg-gray-900 rounded-md shadow-sm">
+      <figure className="mt-16 p-6 border-l-4 rounded-md border bg-card text-card-foreground shadow-sm transition-shadow hover:shadow-md">
         <blockquote className="text-xl italic text-gray-800 dark:text-gray-100">
           &ldquo;{quote}&rdquo;
         </blockquote>

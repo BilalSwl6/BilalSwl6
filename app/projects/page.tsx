@@ -57,11 +57,11 @@ function ProjectsPage() {
               <div className="my-4 w-full h-px bg-border border border-black dark:border-white rounded-sm" />
               {project.demo == "" ? (
                 <>
-                  <p className="text-sm text-gray-800 dark:text-white bg-primary rounded-md p-2 font-semibold text-center capitalize">{project.note}</p>
+                  <p className="text-sm bg-primary rounded-md p-2 font-semibold text-center capitalize">{project.note}</p>
                 </>
               ) : (
-                <Link href={project.demo}>
-                  <button className="bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 rounded-md">
+                <Link href={project.demo} target="_blank">
+                  <button className="bg-primary font-semibold hover:bg-primary/90 h-9 px-4 py-2 rounded-md ">
                     Demo
                   </button>
                 </Link>
